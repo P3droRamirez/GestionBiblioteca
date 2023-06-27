@@ -2,6 +2,7 @@ package com.midominio.GestionBiblioteca.app.models.entities;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,21 +27,22 @@ public class Libro implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotEmpty
-	@Size(min = 3, max=15)
+	@Size(min = 3, max=40)
 	private String titulo;
 	
 	@NotEmpty
-	@Size(min = 3, max=15)
+	@Size(min = 3, max=50)
 	private String autor;
 	
 	@NotEmpty
-	@Size(min = 3, max=15)
+	@Size(min = 3, max=50)
 	private String editorial;
 	
+	@Column(name= "numero_paginas")
 	@NotNull
 	@Min(value = 0)
 	@Max(value = 1_000)
-	private Long numPag;
+	private Integer numPag;
 	
 	@NotNull
 	private boolean prestado;

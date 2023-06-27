@@ -14,10 +14,12 @@ public interface LibroDao extends CrudRepository<Libro, Long>,PagingAndSortingRe
 
 
 	List<Libro> findByTitulo(String titulo);
+	/*
 	List<Libro> findByAutor(String autor);
 	List<Libro> findByEditorial(String editorial);
 	
 	Page<Libro> findbyTitulo(Pageable pageable,String titulo);
 	Page<Libro> findbyAutor(Pageable pageable,String autor);
 	Page<Libro> findbyEditorial(Pageable pageable,String editorial);
+	*/
 }

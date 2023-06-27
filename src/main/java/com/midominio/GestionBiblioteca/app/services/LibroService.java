@@ -12,7 +12,9 @@ import com.midominio.GestionBiblioteca.app.models.entities.Libro;
 public interface LibroService {
 
 	List<Libro> listar();
+	
 	Page<Libro> listar(Pageable pageable);
+	/*
 	List<Libro> findByTitulo(String titulo);
 	Page<Libro> findbyTitulo(Pageable pageable,String titulo);
 	List<Libro> findByAutor(String autor);
@@ -23,4 +25,5 @@ public interface LibroService {
 	void delete(Long id);
 	void save(Libro libro);
 	Libro saveRest(Libro libro);
+	*/
 }

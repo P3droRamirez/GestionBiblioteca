@@ -42,7 +42,7 @@ public class LibrosController {
 		model.addAttribute("page", pageRender);
 		return "libros/listar";
 	}
-	
+	/*
 	@GetMapping("/editar")
 	public String editar(Model model) {
 		model.addAttribute("titulo", "Inserción de un Libro");
@@ -110,5 +110,6 @@ public class LibrosController {
 		flash.addFlashAttribute("success", "Libro guardado con éxito");
 		return "redirect:listar";
 	}
+	*/
 	
 }
