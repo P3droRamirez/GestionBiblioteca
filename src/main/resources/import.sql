@@ -8,8 +8,14 @@ INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado) VALUES (
 INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado) VALUES ('Matar a un ruiseñor', 'Harper Lee', 'Grasset', 376, false);   
 INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado) VALUES ('Crimen y castigo', 'Fyodor Dostoyevsky', 'Editorial Eneida', 672, false);  
 INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado) VALUES ('El Principito', 'Antoine de Saint', 'Salamandra', 96, false);  
-  
-    
+INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado) VALUES ('Los juegos del hambre', 'Suzanne Collins', 'Salamandra', 416, false);
+INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado) VALUES  ('Cazadores de sombras: Ciudad de hueso', 'Cassandra Clare', 'Salamandra', 504, false);
+INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado) VALUES  ('El código Da Vinci', 'Dan Brown', 'Salamandra', 624, false);
+INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado) VALUES  ('El alquimista', 'Paulo Coelho', 'Salamandra', 208, false); 
+INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado) VALUES ('El señor de los anillos: La comunidad del anillo', 'J.R.R. Tolkien', 'Minotauro', 512, false);
+INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado) VALUES ('El señor de los anillos: Las dos torres', 'J.R.R. Tolkien', 'Minotauro', 448, false);
+INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado) VALUES ('El señor de los anillos: El retorno del rey', 'J.R.R. Tolkien', 'Minotauro', 512, false);
+INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado) VALUES ('El hobbit', 'J.R.R. Tolkien', 'Minotauro', 320, false);    
     
     
     

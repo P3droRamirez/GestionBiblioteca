@@ -27,7 +27,7 @@ public class Libro implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotEmpty
-	@Size(min = 3, max=40)
+	@Size(min = 3, max=60)
 	private String titulo;
 	
 	@NotEmpty
