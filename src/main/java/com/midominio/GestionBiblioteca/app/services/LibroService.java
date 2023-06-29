@@ -14,16 +14,15 @@ public interface LibroService {
 	List<Libro> listar();
 	
 	Page<Libro> listar(Pageable pageable);
-	/*
-	List<Libro> findByTitulo(String titulo);
-	Page<Libro> findbyTitulo(Pageable pageable,String titulo);
+	Libro findById (Long id);
 	List<Libro> findByAutor(String autor);
 	Page<Libro> findbyAutor(Pageable pageable,String autor);
 	List<Libro> findByEditorial(String editorial);
-	Page<Libro> findbyEditorial(Pageable pageable,String editorial);
-	Libro findById (Long id);
+	Page<Libro> findByEditorial(Pageable pageable,String editorial);
 	void delete(Long id);
 	void save(Libro libro);
+	/*
+	
 	Libro saveRest(Libro libro);
 	*/
 }

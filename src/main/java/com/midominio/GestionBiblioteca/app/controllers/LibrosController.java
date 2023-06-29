@@ -42,7 +42,7 @@ public class LibrosController {
 		model.addAttribute("page", pageRender);
 		return "libros/listar";
 	}
-	/*
+	
 	@GetMapping("/editar")
 	public String editar(Model model) {
 		model.addAttribute("titulo", "Inserción de un Libro");
@@ -64,7 +64,7 @@ public class LibrosController {
 	}
 	
 	@GetMapping("/autor/{autor}")
-	public String listarPorAutor(@PathVariable String autor, @RequestParam(defaultValue = "0") int page, Model model) {
+	public String listarPorAutor(@PathVariable String autor, @RequestParam(defaultValue = "0") int page, Model model) {	
 		Pageable pageRequest = PageRequest.of(page, 5);
 		Page<Libro> libros = libroService.findbyAutor(pageRequest,autor);
 		PageRender<Libro> pageRender = new PageRender<>("/libros/autor/" + autor, libros); 
@@ -73,12 +73,14 @@ public class LibrosController {
 		model.addAttribute("page", pageRender);
 		return "libros/listar";
 	}
+	
+	
 	@GetMapping("/editorial/{editorial}")
 	public String listarPorEditorial(@PathVariable String editorial, @RequestParam(defaultValue = "0") int page, Model model) {
 		Pageable pageRequest = PageRequest.of(page, 5);
-		Page<Libro> libros = libroService.findbyAutor(pageRequest,editorial);
-		PageRender<Libro> pageRender = new PageRender<>("/libros/autor/" + editorial, libros); 
-		model.addAttribute("titulo", "Listado de Libros");
+		Page<Libro> libros = libroService.findByEditorial(pageRequest,editorial);
+		PageRender<Libro> pageRender = new PageRender<>("/libros/editorial/" + editorial, libros); 
+		model.addAttribute("titulo", "Listado de Libros por editorial");
 		model.addAttribute("libros", libros);
 		model.addAttribute("page", pageRender);
 		return "libros/listar";
@@ -92,6 +94,8 @@ public class LibrosController {
 		flash.addFlashAttribute("warning", "Libro borrado con éxito");
 		return "redirect:/libros/listar";		
 	}
+	
+	
 	@GetMapping("/editar/{id}")
 	public String formGetById(@PathVariable Long id, Model model) {
 		model.addAttribute("titulo", "Edición de un libro");
@@ -101,7 +105,7 @@ public class LibrosController {
 	
 	@PostMapping("/form")
 	public String guardar(@Valid Libro libro, BindingResult result, Model model,RedirectAttributes flash) {  
-		// la anotación para que se habiliten las validaciones
+		
 		if (result.hasErrors()) {
 			model.addAttribute("titulo", "Edición de un libro");
 			return "libros/form"; 
@@ -110,6 +114,6 @@ public class LibrosController {
 		flash.addFlashAttribute("success", "Libro guardado con éxito");
 		return "redirect:listar";
 	}
-	*/
+	
 	
 }

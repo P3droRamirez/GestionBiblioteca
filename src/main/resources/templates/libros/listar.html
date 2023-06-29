@@ -26,7 +26,8 @@
 					<td>Titulo</td>
 					<td>Numero de Páginas</td>
 					<td>Prestado</td>
-					<td colspan="2">Acciones</td>
+					<td colspan="1">Acciones</td>
+					<td colspan="1">Acciones</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -43,7 +44,7 @@
 					<td><a class="btn btn-primary btn-xs"
 						th:href="@{/libros/borrar/} + ${libro.id}"> Borrar </a></td>
 					<td><a class="btn btn-primary btn-xs"
-						th:href="@{/libros/borrar/} + ${libro.id}"> Editar </a></td>
+						th:href="@{/libros/editar/} + ${libro.id}"> Editar </a></td>
 				</tr>
 			</tbody>
 		</table>
