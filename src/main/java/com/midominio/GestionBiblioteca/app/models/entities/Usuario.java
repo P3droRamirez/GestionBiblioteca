@@ -24,14 +24,14 @@ public class Usuario implements Serializable{
 	private Long id;
 	
 	@NotEmpty
-	@Size(min = 3, max=15)
+	@Size(min = 3, max=65)
 	private String login;
 	
 	@NotEmpty
-	@Size(min = 3, max=15)
+	@Size(min = 3, max=65)
 	private String email;
 	
 	@NotEmpty
-	@Size(min = 3, max=15)
+	@Size(min = 3, max=65)
 	private String direccion;
 }

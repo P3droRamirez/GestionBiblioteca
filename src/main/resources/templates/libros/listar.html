@@ -9,9 +9,11 @@
 	rel="stylesheet"
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
 	crossorigin="anonymous">
-</head>
-<body>
+	
 
+</head>
+<body >
+	<div style="background-image: url('../../img/fondo.jpeg')">
 	<!--  <div th:include="includes/top-bar.html"></div>-->
 	<header th:replace="layout/layout :: header"></header>
 	<div class="container">
@@ -26,6 +28,7 @@
 					<td>Titulo</td>
 					<td>Numero de Páginas</td>
 					<td>Prestado</td>
+					<td>Ver Imagen</td>
 					<td colspan="1">Acciones</td>
 					<td colspan="1">Acciones</td>
 				</tr>
@@ -42,6 +45,8 @@
 					<td th:text="${libro.numPag}"></td>
 					<td th:text="${libro.prestado}"></td>
 					<td><a class="btn btn-primary btn-xs"
+						th:href="@{/libros/ver/} + ${libro.id}"> Ver Imagen </a></td>
+					<td><a class="btn btn-primary btn-xs"
 						th:href="@{/libros/borrar/} + ${libro.id}"> Borrar </a></td>
 					<td><a class="btn btn-primary btn-xs"
 						th:href="@{/libros/editar/} + ${libro.id}"> Editar </a></td>
@@ -49,6 +54,7 @@
 			</tbody>
 		</table>
 		<nav th:replace="paginator-nav :: paginator"></nav>
+	</div>
 	</div>
 	<footer th:replace="layout/layout :: footer" ></footer>
 	<!-- Script de bootstrap enlazado vía CDN-->

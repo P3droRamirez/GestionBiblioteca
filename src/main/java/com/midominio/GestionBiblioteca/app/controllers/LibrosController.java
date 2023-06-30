@@ -1,5 +1,8 @@
 package com.midominio.GestionBiblioteca.app.controllers;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,11 +19,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.midominio.GestionBiblioteca.app.models.entities.Libro;
 import com.midominio.GestionBiblioteca.app.services.LibroService;
-
 import com.midominio.spring02.app.utilis.paginator.PageRender;
 
 import jakarta.validation.Valid;
@@ -31,6 +34,13 @@ public class LibrosController {
 	
 	@Autowired
 	LibroService libroService;
+	@GetMapping("/menu")
+	public String menu(Model model) {
+		model.addAttribute("titulo", "Menu Principal");
+		model.addAttribute("cabecera", "ESTAS EN EL MENU PRINCIPAL, ELIJA UNA OPCIÓN EN EL NAVEGADOR");
+		return "libros/index";
+		
+	}
 	
 	@GetMapping("/listar")
 	public String listar(@RequestParam(defaultValue = "0") int page, Model model) {
@@ -104,16 +114,45 @@ public class LibrosController {
 	}
 	
 	@PostMapping("/form")
-	public String guardar(@Valid Libro libro, BindingResult result, Model model,RedirectAttributes flash) {  
+	public String guardar(@Valid Libro libro, BindingResult result,@RequestParam("file") MultipartFile foto, Model model, RedirectAttributes flash) {  
 		
 		if (result.hasErrors()) {
 			model.addAttribute("titulo", "Edición de un libro");
 			return "libros/form"; 
+		}
+		if (!foto.isEmpty()) {
+			Path directorioRecursos = Paths.get("src/main/resources/static/upload");
+			String rootPath = directorioRecursos.toFile().getAbsolutePath();
+			try {
+				byte[] bytes = foto.getBytes();
+				Path rutaCompleta = Paths.get(rootPath + "/" + foto.getOriginalFilename());
+				Files.write(rutaCompleta, bytes);
+				flash.addFlashAttribute("info", "Subido correctamente " + foto.getOriginalFilename());
+				libro.setFoto(foto.getOriginalFilename());
+			} catch (Exception e) {
+
+			}
 		}
 		libroService.save(libro);
 		flash.addFlashAttribute("success", "Libro guardado con éxito");
 		return "redirect:listar";
 	}
 	
+	@GetMapping("/ver/{id}")
+	public String verLibroId(@PathVariable Long id, @RequestParam(defaultValue = "0") int page, Model model,
+	RedirectAttributes flash) {
+
+		Libro libro = libroService.findById(id);
+
+		if (libro == null) {
+			flash.addFlashAttribute("error", "Articulo inexistente");
+			return "redirect:/articulos/listar";
+		}
+
+		model.addAttribute("titulo", "Mostrando un Libro");
+		model.addAttribute("libro", libro);
+
+		return "libros/ver";
+	}
 	
 }

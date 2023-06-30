@@ -16,7 +16,7 @@
 
 		<h1 class="text-primary" th:text="${titulo}"></h1>
 
-		<form th:action="@{/libros/form}" th:object="${libro}" method="post">
+		<form th:action="@{/libros/form}" th:object="${libro}" method="post" enctype="multipart/form-data">
 
 			<table>
 				<tr>
@@ -48,13 +48,18 @@
 					<td th:if="${#fields.hasErrors('numPag')}"><small
 						th:errors="*{numPag}" class="form-text text-danger"></small></td>
 				</tr>
-				
+
 				<tr>
 					<td>¿Esta prestado?</td>
 					<td><input type="text" th:field="*{prestado}"
 						class="form-control" /></td>
 					<td th:if="${#fields.hasErrors('prestado')}"><small
 						th:errors="*{prestado}" class="form-text text-danger"></small></td>
+				</tr>
+
+				<tr>
+					<td>Foto</td>
+					<td><input type="file" name="file" class="form-control" /></td>
 				</tr>
 
 

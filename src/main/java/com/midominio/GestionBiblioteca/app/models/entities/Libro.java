@@ -47,4 +47,5 @@ public class Libro implements Serializable{
 	@NotNull
 	private boolean prestado;
 	
+	private String foto;
 }
