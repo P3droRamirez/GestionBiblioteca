@@ -28,6 +28,24 @@ public class UsuarioServiceImpl implements UsuarioService{
 		return usuarioDao.findAll(pageable);
 	}
 
+	@Override
+	public Usuario findById(Long id) {
+		
+		return usuarioDao.findById(id).orElse(null);
+	}
+
+	@Override
+	public void delete(Long id) {
+		usuarioDao.deleteById(id);
+		
+	}
+
+	@Override
+	public void save(Usuario usuario) {
+		usuarioDao.save(usuario);
+		
+	}
+
 
 
 	

@@ -16,4 +16,4 @@ INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado,foto) VAL
 INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado,foto) VALUES ('El señor de los anillos: Las dos torres', 'J.R.R. Tolkien', 'Minotauro', 448, false,'');
 INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado,foto) VALUES ('El señor de los anillos: El retorno del rey', 'J.R.R. Tolkien', 'Minotauro', 512, false,'');
 INSERT INTO libros (titulo, autor, editorial, numero_paginas, prestado,foto) VALUES ('El hobbit', 'J.R.R. Tolkien', 'Minotauro', 320, false,'');  
-INSERT INTO usuarios (login, email, direccion,foto) VALUES ('ramilped','pedro@gmail.com','Calle Cisneo alto',''); 
+INSERT INTO usuarios (login, email, direccion) VALUESA ('ramilped','pedro@gmail.com','C/Cisneo alto'); 

@@ -34,4 +34,7 @@ public class Usuario implements Serializable{
 	@NotEmpty
 	@Size(min = 3, max=65)
 	private String direccion;
+	
+	
+	private String foto;
 }
