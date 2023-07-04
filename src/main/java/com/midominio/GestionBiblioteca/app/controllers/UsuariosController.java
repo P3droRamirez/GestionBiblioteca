@@ -111,4 +111,22 @@ public class UsuariosController {
 		flash.addFlashAttribute("success", "Usuario guardado con éxito");
 		return "redirect:listar";
 	}
+	
+	@GetMapping("/ver/{id}")
+	public String verLibroId(@PathVariable Long id, @RequestParam(defaultValue = "0") int page, Model model,
+	RedirectAttributes flash) {
+
+		Usuario usuario = usuarioService.findById(id);
+
+		if (usuario == null) {
+			flash.addFlashAttribute("error", "Usuario inexistente");
+			return "redirect:/usuarios/listar";
+		}
+
+		model.addAttribute("titulo", "Mostrando un Libro");
+		model.addAttribute("usuario", usuario);
+
+		return "usuarios/ver";
+	}
+	
 }
